@@ -5,8 +5,8 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.decouverte"
-        minSdkVersion 16
+        applicationId "com.example.gsbvisite"
+        minSdkVersion 14
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
