@@ -33,6 +33,8 @@ public class AccueilActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(AccueilActivity.this, "Clic sur créer rendez-vous", Toast.LENGTH_SHORT).show();
                 Log.d("message", "Clic sur créer rendez-vous***");
+                Intent i = new Intent(AccueilActivity.this, DemanderRdvActivity.class);
+                startActivity(i);
             }
         });
 

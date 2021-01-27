@@ -15,6 +15,28 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="273dp" android:layout_weight="1">
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" app:srcCompat="@drawable/retour"
+                        android:id="@+id/btnRetourPriseRdv"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1">
+                <TextView
+                        android:text="                        Prendre Rendez-vous"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/textView2" android:textColor="#26937D"
+                        android:textSize="20sp"/>
+                <CalendarView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/calendarView"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

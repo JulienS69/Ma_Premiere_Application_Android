@@ -1,5 +1,6 @@
 package com.example.gsbvisite.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -7,10 +8,12 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.gsbvisite.R;
+import com.example.gsbvisite.controller.MedicamentController;
 
 public class ListeMedicamentsActivity extends AppCompatActivity {
 
     ListView lvMedicaments;
+    MedicamentController medicamentController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +22,12 @@ public class ListeMedicamentsActivity extends AppCompatActivity {
         lvMedicaments =(ListView)findViewById(R.id.listMedic);
         String[] listStrings ={"Aspirine", "Doliprane", "Ibuprofène"};
         lvMedicaments.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listStrings));
-        gestionClick2();
+        gestionClick();
+        this.medicamentController = MedicamentController.getInstance(getBaseContext());
     }
 
 
-    private void gestionClick2() {
+    private void gestionClick() {
         ((ImageButton) this.findViewById(R.id.btnRetourdeMedic)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(ListeMedicamentsActivity.this, "Retour à l'accueil", Toast.LENGTH_SHORT).show();

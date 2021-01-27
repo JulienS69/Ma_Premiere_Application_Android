@@ -31,7 +31,7 @@
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="       💊Liste des médicaments💊" android:id="@+id/textView"/>
+                        android:text="💊Liste des médicaments💊" android:id="@+id/textView"/>
                 <ListView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/listMedic"/>
