@@ -5,24 +5,19 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HelloDroidActivity">
+        tools:context=".view.MainActivity">
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center_horizontal|center_vertical">
-        <ImageView
+            android:layout_height="match_parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp" android:layout_marginStart="10dp" android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" android:layout_marginTop="10dp"
+            android:gravity="center|center_horizontal|center_vertical">
+        <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/logochassagnes"
-                android:id="@+id/chassagnesImage"
-        />
-        <TextView
-                android:text="@string/welcome_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/clickCounter"
-                android:paddingBottom="10dp" android:paddingRight="10dp"
-                android:paddingTop="10dp" android:padding="10dp" android:paddingLeft="10dp"
-                android:textColor="@color/text_color" android:textSize="@dimen/text_size"
-        />
+                android:layout_height="wrap_content" app:srcCompat="@drawable/logogsb" android:id="@+id/btnlogo"
+                android:layout_gravity="center"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ public class AccueilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.activity_accueil);
         gestionClick1();
     }
 
@@ -24,6 +24,8 @@ public class AccueilActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(AccueilActivity.this, "Clic sur Liste de rendez-vous", Toast.LENGTH_SHORT).show();
                 Log.d("message", "Clic sur Liste de rendez-vous*******");
+                Intent i = new Intent(AccueilActivity.this, RdvPraticiensActivity.class);
+                startActivity(i);
             }
         });
 
@@ -38,7 +40,7 @@ public class AccueilActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(AccueilActivity.this, "Clic sur Liste médicament", Toast.LENGTH_SHORT).show();
                 Log.d("message", "Clic sur Liste médicament");
-                Intent i = new Intent(AccueilActivity.this, ListeMedicaments.class);
+                Intent i = new Intent(AccueilActivity.this, ListeMedicamentsActivity.class);
                 startActivity(i);
             }
         });
