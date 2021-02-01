@@ -73,9 +73,10 @@ public class ListeMedicamentsActivity extends AppCompatActivity implements Adapt
         String value = medicament.getMNomCommercial();
         Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(ListeMedicamentsActivity.this, DetailMedicamentActivity.class);
-        intent.putExtra("nom", medicament.getMNomCommercial());
-        intent.putExtra("effet", medicament.getEffet());
-        intent.putExtra("prix", medicament.getMPrixEchant());
+       // intent.putExtra("nom", medicament.getMNomCommercial());
+       // intent.putExtra("effet", medicament.getEffet());
+       // intent.putExtra("prix", medicament.getMPrixEchant());
+            intent.putExtra("medicament", medicament);
         startActivity(intent);
         }
 

@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.gsbvisite.R;
+import com.example.gsbvisite.modele.Medicament;
 
 public class DetailMedicamentActivity extends AppCompatActivity {
 
@@ -22,9 +23,14 @@ public class DetailMedicamentActivity extends AppCompatActivity {
         txtCommercial = (TextView) this.findViewById(R.id.txtCommercial);
         txtEffet = (TextView) this.findViewById(R.id.txtEffet);
         txtPrix = (TextView) this.findViewById(R.id.txtPrix);
-        txtCommercial.setText(this.getIntent().getExtras().getString("nom"));
-        txtEffet.setText(this.getIntent().getExtras().getString("effet"));
-        Double prix = this.getIntent().getDoubleExtra("prix", 0);
+        Medicament medicament = getIntent().getParcelableExtra("medicament");
+       // txtCommercial.setText(this.getIntent().getExtras().getString("nom"));
+       // txtEffet.setText(this.getIntent().getExtras().getString("effet"));
+        //Double prix = this.getIntent().getDoubleExtra("prix", 0);
+        //txtPrix.setText(prix.toString());
+        txtCommercial.setText((medicament.getMNomCommercial()));
+        txtEffet.setText(medicament.getEffet());
+        Double prix = medicament.getMPrixEchant();
         txtPrix.setText(prix.toString());
         gestionClic();
     }

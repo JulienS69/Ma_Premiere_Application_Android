@@ -1,25 +1,37 @@
 package com.example.gsbvisite.modele;
 
-public class Medicament {
+import android.os.Parcel;
+import android.os.Parcelable;
 
+public class Medicament implements Parcelable {
 
     //region Attributs privés
     private String MDepotLegal;
     private String MNomCommercial;
     private String MComposition;
     private Double MPrixEchant;
-    private String effet;
+    private String Meffet;
     private String contreindic;
     //endregion
 
     //region Constructeur
-    public Medicament(String MDepotLegal, String MNomCommercial, String MComposition, String effet, String contreindic, Double MPrixEchant) {
+
+    public Medicament(String MDepotLegal, String MNomCommercial, String MComposition, String meffet, String contreindic, Double MPrixEchant) {
         this.MDepotLegal = MDepotLegal;
         this.MNomCommercial = MNomCommercial;
         this.MComposition = MComposition;
-        this.effet = effet;
+        this.Meffet = meffet;
         this.contreindic = contreindic;
         this.MPrixEchant = MPrixEchant;
+    }
+
+    public Medicament(Parcel in) {
+        this.MDepotLegal = in.readString();
+        this.MNomCommercial = in.readString();
+        this.MComposition = in.readString();
+        this.Meffet = in.readString();
+        this.contreindic = in.readString();
+        this.MPrixEchant = in.readDouble();
     }
 
 
@@ -43,7 +55,7 @@ public class Medicament {
     }
 
     public String getEffet() {
-        return effet;
+        return Meffet;
     }
 
     public String getContreindic() {
@@ -69,11 +81,40 @@ public class Medicament {
     }
 
     public void setEffet(String effet) {
-        this.effet = effet;
+        this.Meffet = effet;
     }
 
     public void setContreindic(String contreindic) {
         this.contreindic = contreindic;
+    }
+
+
+    public static final Parcelable.Creator<Medicament> CREATOR = new Parcelable.Creator<Medicament>() {
+        public Medicament createFromParcel(Parcel in) {
+            return new Medicament(in);
+        }
+
+        public Medicament[] newArray(int size) {
+            return new Medicament[size];
+        }
+    };
+
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(getMDepotLegal());
+        dest.writeString(getMNomCommercial());
+        dest.writeString(getMComposition());
+        dest.writeString(getEffet());
+        dest.writeString(getContreindic());
+        dest.writeDouble(getMPrixEchant());
+
     }
 
     //endregion
