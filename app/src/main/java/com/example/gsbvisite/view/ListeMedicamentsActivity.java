@@ -26,15 +26,22 @@ public class ListeMedicamentsActivity extends AppCompatActivity implements Adapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listemedicaments);
-        lvMedicaments =(ListView)findViewById(R.id.listMedic);
-        String[] listStrings ={"Aspirine", "Doliprane", "Ibuprofène"};
-        lvMedicaments.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listStrings));
 
+        //Création de l'instance de MedicamentController
         this.medicamentController = MedicamentController.getInstance(getBaseContext());
+        //Connexion à la base et stockage des médicaments dans l'arraylist
         medicaments = medicamentController.medicaments();
-        this.controle = MedicamentController.getInstance(this);
+
+        //"Récupération" de la listView de l'interface
+        lvMedicaments =(ListView)findViewById(R.id.listMedic);
+        //Ajout d'un évènement "clic dans la liste"
+        lvMedicaments.setOnItemClickListener(this);
+        //Création de l'instance de ListAdapter
+        //listAdapter = new MedicamentListAdapter(this, medicaments)
+        adapter = new MedicamentListAdapter(this, this.medicaments);
+        //Remplissage de la liste
+        lvMedicaments.setAdapter(adapter);
         gestionClick();
-        creerList();
     }
 
 
@@ -45,7 +52,6 @@ public class ListeMedicamentsActivity extends AppCompatActivity implements Adapt
                 Log.d("message", "Clic sur Liste médicament");
                 Intent i = new Intent(ListeMedicamentsActivity.this, AccueilActivity.class);
                 startActivity(i);
-
             }
         });
     }
@@ -66,8 +72,12 @@ public class ListeMedicamentsActivity extends AppCompatActivity implements Adapt
         Medicament medicament = (Medicament)adapter.getItem(position);
         String value = medicament.getMNomCommercial();
         Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
-    }
-
+        Intent intent = new Intent(ListeMedicamentsActivity.this, DetailMedicamentActivity.class);
+        intent.putExtra("nom", medicament.getMNomCommercial());
+        intent.putExtra("effet", medicament.getEffet());
+        intent.putExtra("prix", medicament.getMPrixEchant());
+        startActivity(intent);
+        }
 
 
 }
