@@ -1,13 +1,15 @@
 package com.example.gsbvisite.view;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.widget.*;
 import com.example.gsbvisite.R;
+import com.example.gsbvisite.controller.MedicamentController;
 import com.example.gsbvisite.modele.Medicament;
+
 
 import java.util.ArrayList;
 
@@ -90,6 +92,7 @@ public class MedicamentListAdapter extends BaseAdapter {
 
         return convertView;
     }
+
     //endregion
 
     private class ViewHolder{

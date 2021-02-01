@@ -13,12 +13,14 @@ import com.example.gsbvisite.modele.Medicament;
 
 import java.util.ArrayList;
 
-public class ListeMedicamentsActivity extends AppCompatActivity {
+public class ListeMedicamentsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ListView lvMedicaments;
     ArrayList<Medicament> medicaments;
     MedicamentController medicamentController;
     private MedicamentController controle;
+    private MedicamentListAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,27 +45,29 @@ public class ListeMedicamentsActivity extends AppCompatActivity {
                 Log.d("message", "Clic sur Liste médicament");
                 Intent i = new Intent(ListeMedicamentsActivity.this, AccueilActivity.class);
                 startActivity(i);
+
             }
         });
-
-        lvMedicaments.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                //TODO Auto-generated method stub
-                String value=(String)lvMedicaments.getAdapter().getItem(position);
-                Toast.makeText(getApplicationContext(),value,Toast.LENGTH_SHORT).show();
-            }
-        });
-
     }
         private void creerList(){
             ArrayList<Medicament> lesmedicaments = controle.medicaments();
             if (lesmedicaments != null){
                 ListView listView = (ListView)findViewById(R.id.listMedic);
-                MedicamentListAdapter adapter = new MedicamentListAdapter(this, lesmedicaments);
+                adapter = new MedicamentListAdapter(this, lesmedicaments);
                 listView.setAdapter(adapter);
+                listView.setOnItemClickListener(this);
             }
 
         }
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Log.i("Medoc", "Position" + String.valueOf(position));
+        Medicament medicament = (Medicament)adapter.getItem(position);
+        String value = medicament.getMNomCommercial();
+        Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
+    }
+
+
 
 }
