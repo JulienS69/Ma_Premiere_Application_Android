@@ -10,17 +10,16 @@ import java.util.ArrayList;
  * Classe MedicamentDAO.
  * @author : B. CHATAING.
  * created on  26/01/2021.
- * modified on .
+ * modified on 28/01/2021.
  */
 public class MedicamentDAO {
-
-
-    private Dal dal;
+    final private Dal dal;
     private SQLiteDatabase db;
 
     public MedicamentDAO(Context context) {
 
         dal = new Dal(context);
+        create();
     }
 
     /**
@@ -56,20 +55,12 @@ public class MedicamentDAO {
 
     /**
      * R du Crud.
-     * @return
+     * @return arraylist contenant les médicaments de la table medicament.
      */
     public ArrayList<Medicament> read() {
         ArrayList<Medicament> medicaments = new ArrayList<>();
         Medicament medicament;
         db = dal.getCreateDb().getReadableDatabase();
-        String oui = "CREATE TABLE medicament ("
-                + "depotlegal TEXT PRIMARY KEY,"
-                + "nomcommercial TEXT,"
-                + "composition TEXT,"
-                + "effet TEXT,"
-                + "contreindication TEXT,"
-                + "prix REAL)";
-        db.execSQL(oui);
         String req = "Select * from medicament";
         Cursor cursor = db.rawQuery(req,null);
         cursor.moveToFirst();
@@ -80,7 +71,7 @@ public class MedicamentDAO {
             String effet = cursor.getString(3);
             String contreindic = cursor.getString(4);
             Float prix = cursor.getFloat(5);
-            medicament = new Medicament(depot,nom,composition, effet, contreindic, prix.doubleValue());
+            medicament = new Medicament(depot,nom,composition,effet,contreindic,prix.doubleValue());
             medicaments.add(medicament);
             cursor.moveToNext();
         }

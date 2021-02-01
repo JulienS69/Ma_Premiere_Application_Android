@@ -27,11 +27,14 @@
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent" android:layout_gravity="center_horizontal">
                 <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="💊Liste des médicaments💊" android:id="@+id/textView"/>
+                        android:id="@+id/txtView" android:text="Nom - Effet - Prix"
+                        android:textStyle="bold"
+                        android:textSize="25sp"
+                        android:layout_gravity="center|center_horizontal|center_vertical"/>
                 <ListView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" android:id="@+id/listMedic"/>

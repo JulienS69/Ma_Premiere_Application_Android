@@ -2,13 +2,13 @@ package com.example.gsbvisite.modele;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
+
 public class Dal {
 
-    //propriétés
+    final GsbDb createDb;
 
-    private String dbNom = "GsbDB.sqlite";
-    private String version;
-    private GsbDb createDb;
+    //propriétés
 
     //region Constructeur
 
@@ -20,7 +20,13 @@ public class Dal {
 
 
     public Dal(Context context){
-        createDb = new GsbDb(context, dbNom, null, 1);
+        SQLiteDatabase db;
+        String dbNom = "GsbDb.sqlite";
+        int version = 1;
+        createDb = new GsbDb(context, dbNom, null,version);
+        db = createDb.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS medicament");
+        createDb.onCreate(db);
     }
     //endregion
 

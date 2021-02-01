@@ -24,7 +24,6 @@ public final class MedicamentController {
             MedicamentController.medicamentController = new MedicamentController();
             medicaments = new ArrayList<>();
             MedicamentDAO medicamentDAO = new MedicamentDAO(context);
-            //medicamentDAO.create();
             medicaments = medicamentDAO.read();
 
         }

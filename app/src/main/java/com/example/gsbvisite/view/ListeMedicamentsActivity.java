@@ -9,11 +9,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.gsbvisite.R;
 import com.example.gsbvisite.controller.MedicamentController;
+import com.example.gsbvisite.modele.Medicament;
+
+import java.util.ArrayList;
 
 public class ListeMedicamentsActivity extends AppCompatActivity {
 
     ListView lvMedicaments;
+    ArrayList<Medicament> medicaments;
     MedicamentController medicamentController;
+    private MedicamentController controle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +27,12 @@ public class ListeMedicamentsActivity extends AppCompatActivity {
         lvMedicaments =(ListView)findViewById(R.id.listMedic);
         String[] listStrings ={"Aspirine", "Doliprane", "Ibuprofène"};
         lvMedicaments.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listStrings));
-        gestionClick();
+
         this.medicamentController = MedicamentController.getInstance(getBaseContext());
+        medicaments = medicamentController.medicaments();
+        this.controle = MedicamentController.getInstance(this);
+        gestionClick();
+        creerList();
     }
 
 
@@ -45,6 +54,16 @@ public class ListeMedicamentsActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),value,Toast.LENGTH_SHORT).show();
             }
         });
+
     }
+        private void creerList(){
+            ArrayList<Medicament> lesmedicaments = controle.medicaments();
+            if (lesmedicaments != null){
+                ListView listView = (ListView)findViewById(R.id.listMedic);
+                MedicamentListAdapter adapter = new MedicamentListAdapter(this, lesmedicaments);
+                listView.setAdapter(adapter);
+            }
+
+        }
 
 }
