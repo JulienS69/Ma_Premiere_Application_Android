@@ -8,6 +8,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.gsbvisite.R;
+import com.example.gsbvisite.controller.MedicamentController;
+import com.example.gsbvisite.controller.PraticienController;
+import com.example.gsbvisite.controller.RendezVousController;
 import com.example.gsbvisite.modele.*;
 
 import java.util.ArrayList;
@@ -15,8 +18,11 @@ import java.util.ArrayList;
 public class AccueilActivity extends AppCompatActivity {
 
     private Dal dal;
-    ArrayList<Praticien> praticiens;
+    MedicamentController medicamentController;
+    PraticienController praticienController;
+    RendezVousController rendezVousController;
     ArrayList<Medicament> medicaments;
+    ArrayList<Praticien> praticiens;
     ArrayList<RendezVous> rendezVous;
     Bundle bundlerdv = new Bundle();
     Bundle bundlepraticien = new Bundle();
@@ -26,21 +32,17 @@ public class AccueilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-        dal = Dal.getInstance(getBaseContext());
-        MedicamentDAO medicamentDAO = new MedicamentDAO(getBaseContext());
-        medicamentDAO.create();
-        medicaments = medicamentDAO.read();
-        PraticienDao praticienDao = new PraticienDao(getBaseContext());
-        praticienDao.create();
-        praticiens = praticienDao.read();
-        RendezVousDao rendezVousDao = new RendezVousDao(getBaseContext());
-        rendezVousDao.create();
-        rendezVous = rendezVousDao.read();
+        this.medicamentController = MedicamentController.getInstance(this);
+        medicaments = medicamentController.medicaments();
+        this.praticienController = praticienController.getInstance(this);
+        praticiens = praticienController.praticiens();
+        this.rendezVousController = rendezVousController.getInstance(this);
+        rendezVous = rendezVousController.rendezVous();
 
-        bundlemedicament.putParcelableArrayList("lesmedicaments", medicaments);
-        bundlepraticien.putParcelableArrayList("lespraticiens", praticiens);
-        bundlerdv.putParcelableArrayList("lesrendez-vous", rendezVous);
-        gestionClick1();
+         bundlemedicament.putParcelableArrayList("lesmedicaments", medicaments);
+         bundlepraticien.putParcelableArrayList("lespraticiens", praticiens);
+         bundlerdv.putParcelableArrayList("lesrendez-vous", rendezVous);
+         gestionClick1();
     }
 
 

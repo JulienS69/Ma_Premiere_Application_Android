@@ -26,8 +26,8 @@ public class MedicamentDAO {
      * C du Crud.
      */
     public void create() {
-        db = dal.getCreateDb().getWritableDatabase();
         if (read().size() == 0) {
+            db = dal.getCreateDb().getWritableDatabase();
             String req = "insert into medicament values ("
                     + "'3MYC7',"
                     + "'TRIMYCINE',"

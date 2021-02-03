@@ -7,15 +7,15 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.gsbvisite.R;
+import com.example.gsbvisite.controller.MedicamentController;
 import com.example.gsbvisite.modele.Medicament;
 
 import java.util.ArrayList;
 
 public class ListeMedicamentsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    ListView lvMedicaments;
-    ArrayList<Medicament> medicaments;
 
+    ArrayList<Medicament> lesmedicaments;
     private MedicamentListAdapter adapter;
 
 
@@ -23,19 +23,18 @@ public class ListeMedicamentsActivity extends AppCompatActivity implements Adapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listemedicaments);
-
-        //"Récupération" de la listView de l'interface
-        lvMedicaments =(ListView)findViewById(R.id.listMedic);
-
-        //Ajout d'un évènement "clic dans la liste"
-
-        lvMedicaments.setOnItemClickListener(this);
-        //Création de l'instance de ListAdapter
-        //listAdapter = new MedicamentListAdapter(this, medicaments)
-
-
         gestionClick();
-        creerList();
+        creerListe();
+    }
+
+
+    private void retourAcceuil() {
+        ((ImageButton) findViewById(R.id.btnRetourdeMedic)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
 
@@ -49,31 +48,32 @@ public class ListeMedicamentsActivity extends AppCompatActivity implements Adapt
             }
         });
     }
-        private void creerList(){
-            Intent intent = getIntent();
-            ArrayList<Medicament> lesmedicaments = intent.getParcelableArrayListExtra("lesmedicaments");
-            if (lesmedicaments != null){
-                ListView listView = (ListView)findViewById(R.id.listMedic);
+
+    private void creerListe() {
+        Intent intent = getIntent();
+        lesmedicaments = intent.getParcelableArrayListExtra("lesmedicaments");
+            if (lesmedicaments != null) {
+                ListView listMedicaments = (ListView) this.findViewById(R.id.listMedic);
                 adapter = new MedicamentListAdapter(this, lesmedicaments);
-                listView.setAdapter(adapter);
-                listView.setOnItemClickListener(this);
+                listMedicaments.setAdapter(adapter);
+                listMedicaments.setOnItemClickListener(this);
             }
+    }
 
-        }
 
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.i("Medoc", "Position" + String.valueOf(position));
         Medicament medicament = (Medicament)adapter.getItem(position);
         String value = medicament.getMNomCommercial();
         Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(ListeMedicamentsActivity.this, DetailMedicamentActivity.class);
-       // intent.putExtra("nom", medicament.getMNomCommercial());
-       // intent.putExtra("effet", medicament.getEffet());
-       // intent.putExtra("prix", medicament.getMPrixEchant());
-            intent.putExtra("medicament", medicament);
+        // intent.putExtra("nom", medicament.getMNomCommercial());
+        // intent.putExtra("effet", medicament.getEffet());
+        // intent.putExtra("prix", medicament.getMPrixEchant());
+        intent.putExtra("medicament", medicament);
         startActivity(intent);
-        }
+    }
 
 
 }

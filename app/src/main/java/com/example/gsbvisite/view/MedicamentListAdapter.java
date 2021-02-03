@@ -74,25 +74,25 @@ public class MedicamentListAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.layout_list_medicament, null);
             // chaque propriété du holder est relié à une propriété graphique
             holder.txtNomCommercial = (TextView) convertView.findViewById(R.id.txtNomCommercial);
-            holder.txtEffet = (TextView) convertView.findViewById(R.id.txtEffet);
-            holder.txtPrix = (TextView) convertView.findViewById(R.id.txtPrix);
-            holder.txtComposition = (TextView) convertView.findViewById(R.id.txtComposition);
-            holder.txtContreIndic = (TextView) convertView.findViewById(R.id.txtContreIndic);
-            holder.txtDepotLegal = (TextView) convertView.findViewById(R.id.txtDepotLegal);
+          //  holder.txtEffet = (TextView) convertView.findViewById(R.id.txtEffet);
+          //  holder.txtPrix = (TextView) convertView.findViewById(R.id.txtPrix);
+            // holder.txtComposition = (TextView) convertView.findViewById(R.id.txtComposition);
+          //   holder.txtContreIndic = (TextView) convertView.findViewById(R.id.txtContreIndic);
+          // holder.txtDepotLegal = (TextView) convertView.findViewById(R.id.txtDepotLegal);
             // affecter le holder à la vue
             convertView.setTag(holder);
         }
         else {
         // récupération du holder dans la ligne existante
-            holder = (ViewHolder) convertView.getTag();
+            holder = (ViewHolder)convertView.getTag();
         }
         // valorisation du contenu du holder (donc de la ligne)
         holder.txtNomCommercial.setText(lesmedicaments.get(position).getMNomCommercial());
-        holder.txtEffet.setText(lesmedicaments.get(position).getEffet());
-        holder.txtPrix.setText(lesmedicaments.get(position).getMPrixEchant().toString());
-        holder.txtComposition.setText(lesmedicaments.get(position).getMComposition());
-        holder.txtContreIndic.setText(lesmedicaments.get(position).getContreindic());
-        holder.txtDepotLegal.setText(lesmedicaments.get(position).getMDepotLegal());
+      //  holder.txtEffet.setText(lesmedicaments.get(position).getEffet());
+      //  holder.txtPrix.setText(lesmedicaments.get(position).getMPrixEchant().toString());
+     //   holder.txtComposition.setText(lesmedicaments.get(position).getMComposition());
+      //  holder.txtContreIndic.setText(lesmedicaments.get(position).getContreindic());
+     //   holder.txtDepotLegal.setText(lesmedicaments.get(position).getMDepotLegal());
 
         return convertView;
     }
@@ -101,11 +101,11 @@ public class MedicamentListAdapter extends BaseAdapter {
 
     private class ViewHolder{
         TextView txtNomCommercial;
-        TextView txtEffet;
-        TextView txtPrix;
-        TextView txtComposition;
-        TextView txtContreIndic;
-        TextView txtDepotLegal;
+     //   TextView txtEffet;
+      //  TextView txtPrix;
+      //  TextView txtComposition;
+     //   TextView txtContreIndic;
+      //  TextView txtDepotLegal;
 
     }
 }
