@@ -47,8 +47,7 @@ public class DetailMedicamentActivity extends AppCompatActivity {
     private void gestionClic() {
         ((Button) this.findViewById(R.id.btnRetourdeDetail)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(DetailMedicamentActivity.this, ListeMedicamentsActivity.class);
-                startActivity(i);
+                onBackPressed();
             }
         });
     }

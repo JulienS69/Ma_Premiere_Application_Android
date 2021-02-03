@@ -11,12 +11,14 @@ import com.example.gsbvisite.R;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         gestionClic();
     }
+
 
     private void gestionClic() {
         ((ImageButton) this.findViewById(R.id.btnlogo)).setOnClickListener(new View.OnClickListener() {

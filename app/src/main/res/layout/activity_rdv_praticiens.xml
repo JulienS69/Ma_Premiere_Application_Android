@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.RdvPraticiensActivity">
+        tools:context=".view.RdvPraticienActivity">
 
     <LinearLayout
             android:orientation="vertical"
@@ -35,7 +35,7 @@
                         android:textColor="#247DCA"/>
                 <ListView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:id="@+id/listRdvPraticiens"/>
+                        android:layout_height="match_parent" android:id="@+id/listRdvPraticien"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

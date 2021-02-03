@@ -18,7 +18,7 @@ public class MedicamentDAO {
 
     public MedicamentDAO(Context context) {
 
-        dal = new Dal(context);
+        dal = Dal.getInstance(context);
         create();
     }
 
@@ -26,32 +26,32 @@ public class MedicamentDAO {
      * C du Crud.
      */
     public void create() {
-        if (read().size() == 0){
         db = dal.getCreateDb().getWritableDatabase();
-        String req = "insert into medicament values ("
-                + "'3MYC7',"
-                + "'TRIMYCINE',"
-                + "'Triamcinolone (acétonide) + Néomycine + Nystatine',"
-                + "'Redoutable',"
-                + "'Ce médicament est contre-indiqué en cas de trouble du sommeil',"
-                + "16)";
-        db.execSQL(req);
-        req = "insert into medicament values ("
-                + "'ADIMOL9',"
-                + "'ADIMOL',"
-                + "'Amoxicilline + Acide clavulanique',"
-                + "'Puissant',"
-                + "'Ce médicament est contre-indiqué en cas de trouble du sommeil',"
-                + "27)";
-        db.execSQL(req);
-        req = "insert into medicament values ("
-                + "'AMOPIL7',"
-                + "'AMOPIL',"
-                + "'Amoxicilline',"
-                + "'Ce médicament est plus puissant que les pénicillines ',"
-                + "'Ce médicament est contre-indiqué en cas de trouble du sommeil',"
-                + "35)";
-        db.execSQL(req);
+        if (read().size() == 0) {
+            String req = "insert into medicament values ("
+                    + "'3MYC7',"
+                    + "'TRIMYCINE',"
+                    + "'Triamcinolone (acétonide) + Néomycine + Nystatine',"
+                    + "'Redoutable',"
+                    + "'Ce médicament est contre-indiqué en cas de trouble du sommeil',"
+                    + "16)";
+            db.execSQL(req);
+            req = "insert into medicament values ("
+                    + "'ADIMOL9',"
+                    + "'ADIMOL',"
+                    + "'Amoxicilline + Acide clavulanique',"
+                    + "'Puissant',"
+                    + "'Ce médicament est contre-indiqué en cas de trouble du sommeil',"
+                    + "27)";
+            db.execSQL(req);
+            req = "insert into medicament values ("
+                    + "'AMOPIL7',"
+                    + "'AMOPIL',"
+                    + "'Amoxicilline',"
+                    + "'Ce médicament est plus puissant que les pénicillines ',"
+                    + "'Ce médicament est contre-indiqué en cas de trouble du sommeil',"
+                    + "35)";
+            db.execSQL(req);
         }
     }
 

@@ -1,6 +1,5 @@
 package com.example.gsbvisite.view;
 
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.gsbvisite.R;
-import com.example.gsbvisite.controller.MedicamentController;
 import com.example.gsbvisite.modele.Medicament;
 
 import java.util.ArrayList;
@@ -17,8 +15,7 @@ public class ListeMedicamentsActivity extends AppCompatActivity implements Adapt
 
     ListView lvMedicaments;
     ArrayList<Medicament> medicaments;
-    MedicamentController medicamentController;
-    private MedicamentController controle;
+
     private MedicamentListAdapter adapter;
 
 
@@ -27,21 +24,18 @@ public class ListeMedicamentsActivity extends AppCompatActivity implements Adapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listemedicaments);
 
-        //Création de l'instance de MedicamentController
-        this.medicamentController = MedicamentController.getInstance(getBaseContext());
-        //Connexion à la base et stockage des médicaments dans l'arraylist
-        medicaments = medicamentController.medicaments();
-
         //"Récupération" de la listView de l'interface
         lvMedicaments =(ListView)findViewById(R.id.listMedic);
+
         //Ajout d'un évènement "clic dans la liste"
+
         lvMedicaments.setOnItemClickListener(this);
         //Création de l'instance de ListAdapter
         //listAdapter = new MedicamentListAdapter(this, medicaments)
-        adapter = new MedicamentListAdapter(this, this.medicaments);
-        //Remplissage de la liste
-        lvMedicaments.setAdapter(adapter);
+
+
         gestionClick();
+        creerList();
     }
 
 
@@ -56,7 +50,8 @@ public class ListeMedicamentsActivity extends AppCompatActivity implements Adapt
         });
     }
         private void creerList(){
-            ArrayList<Medicament> lesmedicaments = controle.medicaments();
+            Intent intent = getIntent();
+            ArrayList<Medicament> lesmedicaments = intent.getParcelableArrayListExtra("lesmedicaments");
             if (lesmedicaments != null){
                 ListView listView = (ListView)findViewById(R.id.listMedic);
                 adapter = new MedicamentListAdapter(this, lesmedicaments);
