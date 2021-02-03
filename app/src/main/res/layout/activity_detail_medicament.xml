@@ -63,6 +63,47 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" android:id="@+id/txtPrix" android:layout_weight="1"/>
             </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="Composition"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="1"/>
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/txtComposition"
+                        android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="Contre_Indication"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_weight="1"/>
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/txtContreIndic"
+                        android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="Depot Légal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/textView6" android:layout_weight="1"/>
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/txtDepotLegal" android:layout_weight="1"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

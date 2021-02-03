@@ -14,6 +14,9 @@ public class DetailMedicamentActivity extends AppCompatActivity {
     private TextView txtCommercial;
     private TextView txtEffet;
     private TextView txtPrix;
+    private TextView txtComposition;
+    private TextView txtContreIndic;
+    private TextView txtDepotLegal;
 
 
     @Override
@@ -23,6 +26,9 @@ public class DetailMedicamentActivity extends AppCompatActivity {
         txtCommercial = (TextView) this.findViewById(R.id.txtCommercial);
         txtEffet = (TextView) this.findViewById(R.id.txtEffet);
         txtPrix = (TextView) this.findViewById(R.id.txtPrix);
+        txtComposition = (TextView) this.findViewById(R.id.txtComposition);
+        txtContreIndic = (TextView) this.findViewById(R.id.txtContreIndic);
+        txtDepotLegal = (TextView) this.findViewById(R.id.txtDepotLegal);
         Medicament medicament = getIntent().getParcelableExtra("medicament");
        // txtCommercial.setText(this.getIntent().getExtras().getString("nom"));
        // txtEffet.setText(this.getIntent().getExtras().getString("effet"));
@@ -32,6 +38,9 @@ public class DetailMedicamentActivity extends AppCompatActivity {
         txtEffet.setText(medicament.getEffet());
         Double prix = medicament.getMPrixEchant();
         txtPrix.setText(prix.toString());
+        txtComposition.setText(medicament.getMComposition());
+        txtContreIndic.setText(medicament.getContreindic());
+        txtDepotLegal.setText(medicament.getMDepotLegal());
         gestionClic();
     }
 

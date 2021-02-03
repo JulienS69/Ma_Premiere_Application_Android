@@ -76,6 +76,9 @@ public class MedicamentListAdapter extends BaseAdapter {
             holder.txtNomCommercial = (TextView) convertView.findViewById(R.id.txtNomCommercial);
             holder.txtEffet = (TextView) convertView.findViewById(R.id.txtEffet);
             holder.txtPrix = (TextView) convertView.findViewById(R.id.txtPrix);
+            holder.txtComposition = (TextView) convertView.findViewById(R.id.txtComposition);
+            holder.txtContreIndic = (TextView) convertView.findViewById(R.id.txtContreIndic);
+            holder.txtDepotLegal = (TextView) convertView.findViewById(R.id.txtDepotLegal);
             // affecter le holder à la vue
             convertView.setTag(holder);
         }
@@ -87,6 +90,9 @@ public class MedicamentListAdapter extends BaseAdapter {
         holder.txtNomCommercial.setText(lesmedicaments.get(position).getMNomCommercial());
         holder.txtEffet.setText(lesmedicaments.get(position).getEffet());
         holder.txtPrix.setText(lesmedicaments.get(position).getMPrixEchant().toString());
+        holder.txtComposition.setText(lesmedicaments.get(position).getMComposition());
+        holder.txtContreIndic.setText(lesmedicaments.get(position).getContreindic());
+        holder.txtDepotLegal.setText(lesmedicaments.get(position).getMDepotLegal());
 
         return convertView;
     }
@@ -97,6 +103,9 @@ public class MedicamentListAdapter extends BaseAdapter {
         TextView txtNomCommercial;
         TextView txtEffet;
         TextView txtPrix;
+        TextView txtComposition;
+        TextView txtContreIndic;
+        TextView txtDepotLegal;
 
     }
 }

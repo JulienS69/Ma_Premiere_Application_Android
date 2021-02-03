@@ -17,6 +17,24 @@ public class GsbDb extends SQLiteOpenHelper {
              + "contreindication TEXT,"
              + "prix REAL)";
 
+    String praticien = "CREATE TABLE praticien ("
+            + "numero INTEGER PRIMARY KEY,"
+            + "nom TEXT,"
+            + "prenom TEXT,"
+            + "adresse TEXT,"
+            + "codepostal TEXT,"
+            + "ville TEXT,"
+            + "telephone TEXT,"
+            + "coefnotoriete INTEGER)";
+
+    String rendezVous = "CREATE TABLE rendezvous ("
+            + "numero INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + "date TEXT,"
+            + "heure TEXT,"
+            + "idPraticien INTEGER,"
+            + "FOREIGN KEY (idPraticien) REFERENCES praticien(numero) )";
+
+
     //region Constructeur
 
     /**
@@ -40,6 +58,10 @@ public class GsbDb extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("DROP TABLE IF EXISTS medicament");
         db.execSQL(medicament);
+        db.execSQL("DROP TABLE IF EXISTS praticien");
+        db.execSQL(praticien);
+        db.execSQL("DROP TABLE IF EXISTS rendezVous");
+        db.execSQL(rendezVous);
     }
 
     /**

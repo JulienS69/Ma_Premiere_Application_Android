@@ -26,6 +26,8 @@ public class Dal {
         createDb = new GsbDb(context, dbNom, null,version);
         db = createDb.getWritableDatabase();
         db.execSQL("DROP TABLE IF EXISTS medicament");
+        db.execSQL("DROP TABLE IF EXISTS praticien");
+        db.execSQL("DROP TABLE IF EXISTS rendezVous");
         createDb.onCreate(db);
     }
     //endregion

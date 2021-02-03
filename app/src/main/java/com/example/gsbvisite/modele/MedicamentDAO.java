@@ -26,6 +26,7 @@ public class MedicamentDAO {
      * C du Crud.
      */
     public void create() {
+        if (read().size() == 0){
         db = dal.getCreateDb().getWritableDatabase();
         String req = "insert into medicament values ("
                 + "'3MYC7',"
@@ -51,6 +52,7 @@ public class MedicamentDAO {
                 + "'Ce médicament est contre-indiqué en cas de trouble du sommeil',"
                 + "35)";
         db.execSQL(req);
+        }
     }
 
     /**

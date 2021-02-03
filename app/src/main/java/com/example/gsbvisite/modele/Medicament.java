@@ -114,7 +114,6 @@ public class Medicament implements Parcelable {
         dest.writeString(getEffet());
         dest.writeString(getContreindic());
         dest.writeDouble(getMPrixEchant());
-
     }
 
     //endregion

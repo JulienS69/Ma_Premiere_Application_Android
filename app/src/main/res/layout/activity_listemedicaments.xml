@@ -31,9 +31,10 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtView" android:text="Nom - Effet - Prix"
+                        android:id="@+id/txtView"
+                        android:text="Nom - Effet - Prix - Composition - Contre Indication - Depôt Legal"
                         android:textStyle="bold"
-                        android:textSize="25sp"
+                        android:textSize="12sp"
                         android:layout_gravity="center|center_horizontal|center_vertical"/>
                 <ListView
                         android:layout_width="match_parent"
