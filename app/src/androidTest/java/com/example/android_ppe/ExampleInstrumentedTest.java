@@ -1,4 +1,4 @@
-package com.example.helloandroid;
+package com.example.android_ppe;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -20,6 +20,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.helloandroid", appContext.getPackageName());
+        assertEquals("com.example.android_ppe", appContext.getPackageName());
     }
 }
