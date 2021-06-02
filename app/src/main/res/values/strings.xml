@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">HelloAndroid</string>
-    <string name="welcome_text">Ma première application Android !</string>
+    <string name="app_name">MesRendezVous</string>
+    <!-- Bottom Navigation View -->
+    <string name="bottom_navigation_menu_home">Accueil</string>
+    <string name="bottom_navigation_menu_medicaments">Médicaments</string>
+    <string name="bottom_navigation_menu_settings">Paramètres</string>
 </resources>

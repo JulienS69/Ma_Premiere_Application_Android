@@ -1,4 +1,4 @@
-package com.example.helloandroid;
+package com.example.android_ppe;
 
 import org.junit.Test;
 
